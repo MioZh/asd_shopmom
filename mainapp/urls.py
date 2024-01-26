@@ -1,7 +1,7 @@
 """
-URL configuration for asdshop project.
+URL configuration for stepMom project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
+The urlpatterns list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
@@ -14,11 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
 
+from .views import index, products, about, contact
+from django.urls import path
+
+app_name = 'main'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('mainapp.urls', namespace='main')),
+    path('', index, name='index'),
+    path('products', products, name='products'),
+    path('about', about, name='about'),
+    path('contact', contact, name='contact'),
 ]
